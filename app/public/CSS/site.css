@@ -11,3 +11,13 @@
   margin-left: 2%;
   margin-right:2%;
 }
+
+h1{
+  font-family: georgia;
+  color: rgb(177, 100, 107);
+}
+
+.btn-primary{
+  background-color:rgb(152, 86, 86);
+  border-color:rgb(152, 86, 86);
+}
