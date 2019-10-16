@@ -1,0 +1,15 @@
+
+{
+    "name": "iu-msis/ocfr",
+    "description": "OCFR - DS Final Project",
+    "license": "private",
+    "authors": [{
+        "name": "Team 28"
+    }],
+    "require": {
+      "ramsey/uuid": "^3.8"
+    },
+    "autoload": {
+        "classmap": ["class/DbConnection.php"]
+    }
+}
