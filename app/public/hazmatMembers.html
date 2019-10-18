@@ -8,8 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/site.css">
-
-    <title>Certification Info</title>
+    <title>Certification Member</title>
   </head>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -20,7 +19,6 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Members</a>
             <div class="dropdown-menu">
@@ -42,61 +40,39 @@
             </div>
           </li>
         </div>
-
         </li>
       </ul>
     </div>
   </nav>
   </header>
   <body>
-  <div id = "certificatesbox" class="container">
-    <h1> Certificate Hub </h1>
-    <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">CPR Certification</h3>
-        <p class="card-text">CPR: Cardiopulmonary Resuscitation Certification <br> Experation Length: 2 Years</p>
-        <a href="CPRMembers.html" class="btn btn-primary">View Members </a>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">Extrication Certification</h3>
-        <p class="card-text">Extrication Description<br>Expiration Length: No Expiry</p>
-        <a href="extricationMembers.html" class="btn btn-primary">View Members</a>
-      </div>
-    </div>
-  </div>
 
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">Firefighter II Cetfication</h3>
-        <p class="card-text">Second Level of Firefighter Certfication <br> Expiration Length: 2 Years</p>
-          <a href="firefighterMembers.html" class="btn btn-primary">View Members </a>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">HAZMAT Certification</h3>
-        <p class="card-text">Hazardous Materials Certification <br> Expiration Length: 2 Years</p>
-          <a href="hazmatMembers.html" class="btn btn-primary">View Members </a>
-      </div>
-    </div>
-  </div>
+<div id="hazmatRecordsApp" class="container">
+<table class="table">
+  <thead class="thead-dark">
+    <h1>HAZMAT Certifications</h1>
+    <hr>
+    <tr>
+      <th scope="col">MemberID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="p in people">
+      <td>{{p.personID}}</td>
+      <td>{{p.Name}}</td>
+      <td>{{p.Status}}</td>
+    </tr>
+  </tbody>
+</table>
 </div>
-</div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="js/hazmat.app.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
 </html>
