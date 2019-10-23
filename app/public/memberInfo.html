@@ -51,15 +51,15 @@
   <body>
 
   <div id = "userInfoApp" class= "container" >
-      <form @submit.prevent="handleSubmit">
+      <form @submit.prevent="oneUserInfo">
       <hr>
-    Enter Name <input name="firstname" class = "finduser" type="text" v-model="user.firstName">
+    Enter Name <input name="firstname" class = "finduser" type="text" v-model="searchName">
       <button type="submit" class="btn btn-primary mb-2">Search</button> <br>
         <!-- <v-for="u in users"> -->
 
-        <b><label for="firstName">Name:</label></b>{{ user.firstName }}<br>
-        <!-- <b><label for="lastName">Name:</label></b>{{ u.lastName }}<br>
-        <b><label for="gender">Name:</label></b>{{u.gender}}<br>
+        <b><label for="firstName">First Name:</label></b>{{ user.firstName }}<br>
+        <b><label for="lastName">Last Name:</label></b>{{ user.lastName }}<br>
+        <!--<b><label for="gender">Name:</label></b>{{u.gender}}<br>
         <b><label for="dateOfBirth">DateOfBirth:</label></b>{{ u.dob }}<br>
         <b><label for="address">Name:</label></b>{{u.address}}<br>
         <b><label for="email">Email:</label></b>{{ u.email }}<br>
@@ -72,26 +72,16 @@
           <thead>
             <tr>
               <th scope="col">Certificate ID</th>
-              <th scope="col">Certificate Name</th>
-              <th scope="col">Status</th>
-              </tr>
+              <th scope="col">Acquired Date</th>
+              <th scope="col">Expiry Date</th>
+            </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Kathryn</td>
-              <td>Pyrde</td>
+            <tr v-for= "c in cert">
+              <td>{{c.certificateID}}</td>
+              <td>{{c.acquiredate}}</td>
+              <td>{{c.expirydate}}</td>
               </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Piotr</td>
-              <td>Rasputin</td>
-              </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Warren</td>
-              <td>Worthington III</td>
-            </tr>
           </tbody>
         </table>
 
