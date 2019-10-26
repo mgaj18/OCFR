@@ -32,7 +32,7 @@ handleSubmit(event) {
 oneUserInfo()
 {
   console.log(this.users);
-  
+
   for(var u of this.users)
   {
     if(this.searchName == u.firstName)

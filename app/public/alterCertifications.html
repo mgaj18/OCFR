@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/site.css">
 
-    <title>View User Info</title>
+    <title>Edit Members</title>
   </head>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,50 +51,68 @@
   </header>
   <body>
 
-  <div id = "userInfoApp" class= "container" >
-      <form @submit.prevent="oneUserInfo">
+<div id = "certificationApp">
+  <div class = "container">
+    <h1> Alter Certification Records </h1>
+    <hr>
+  <form>
+    <div class="form-group">
+      Certification ID
+      <input type="name" class="form-control" id="editlastname" v-model="certification.certificateID" readonly>
+    </div>
+
+    <div class="form-group">
+      <label for="certName">Certification Name</label>
+      <input type="name" class="form-control" id="certName" placeholder="Enter Certification Name" v-model="certification.certName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="agency">Agency</label>
+      <input type="name" class="form-control" id="agency" placeholder="Enter Certification Agency" v-model="certification.agency">
+    </div>
+
+    <div class="form-group">
+      <label for="certificationLength">Length</label>
+      <input type="radioNumber" class="form-control" id="certificationLength" placeholder="Enter Certification Length" v-model="certification.certificationLength">
+    </div>
+      <br>
+      <button v-on:click.prevent ="handleAdd" type="submit" class="btn btn-primary">Add User</button>
+      <button v-on:click.prevent ="handleEdit" type="submit" class="btn btn-primary">Save Edits</button>
+      <button v-on:click.prevent ="handleDelete" type="submit" class="btn btn-primary">Delete Certification</button>
       <hr>
-    Enter Name <input name="firstname" class = "finduser" type="text" v-model="searchName">
-      <button type="submit" class="btn btn-primary mb-2">Search</button> <br>
-        <!-- <v-for="u in users"> -->
-
-        <b><label for="firstName">First Name:</label></b>{{ user.firstName }}<br>
-        <b><label for="lastName">Last Name:</label></b>{{ user.lastName }}<br>
-        <!--<b><label for="gender">Name:</label></b>{{u.gender}}<br>
-        <b><label for="dateOfBirth">DateOfBirth:</label></b>{{ u.dob }}<br>
-        <b><label for="address">Name:</label></b>{{u.address}}<br>
-        <b><label for="email">Email:</label></b>{{ u.email }}<br>
-        <b><label for="phonenumber">PhoneNumber:</label></b>{{u.phoneNumber}}<br> -->
-        <!-- <b><label for="radionumber">Radio:</label></b>{{ u.radio }} <br>
-        <b><label for="Name">Station Name:</label></b>{{ u.stationName }} <br> -->
-
-        <b><label for="Certificates">Certificates:</label></b><br>
+    </div>
+  </form>
+    <div class= "container" >
         <table class="table table-dark">
           <thead>
             <tr>
-              <th scope="col">Certificate ID</th>
-              <th scope="col">Acquired Date</th>
-              <th scope="col">Expiry Date</th>
+              <th scope="col">Certification ID</th>
+              <th scope="col">Certification Name</th>
+              <th scope="col">Certification Agency</th>
+              <th scope="col">Certification Length</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for= "c in cert">
+            <tr v-for= "c in certificate" @click = "handleRowClick(c)">
               <td>{{c.certificateID}}</td>
-              <td>{{c.acquiredate}}</td>
-              <td>{{c.expirydate}}</td>
-              </tr>
+              <td>{{c.certName}}</td>
+              <td>{{c.agency}}</td>
+              <td>{{c.certificationLength}}</td>
+            </th>
+            </tr>
           </tbody>
         </table>
+    </div>
+  </div>
+<br>
+<hr>
 
-</form>
-</div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="js/userInfo.app.js"></script>
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/editCerts.app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
