@@ -8,8 +8,9 @@ var userInfoApp = new Vue({
     cert:[],
     tempCert:{
       certificateID:'',
-      acquiredate:'',
-      expirydate:''
+      acquireDate:'',
+      expDate:'',
+      validity:''
     }
   },
   methods: {
@@ -31,28 +32,48 @@ handleSubmit(event) {
 
 oneUserInfo()
 {
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = yyyy + '-' + mm + '-' + dd;
+  console.log("todays date");
+  console.log(today);
   console.log(this.users);
-  
+
   for(var u of this.users)
   {
     if(this.searchName == u.firstName)
     {
       this.user = u;
-      console.log(this.user);
+      //console.log(this.user);
       break;
     }
   }
   for(var u1 of this.users)
   {
-    console.log("I am here");
-    //i=0;
-    console.log(u1.certificateID);
+    console.log(this.user);
     if(this.searchName == u1.firstName)
     {
-      this.tempCert.certificateID=u1.certificateID;
-      this.tempCert.acquiredate=u1.acquiredate;
-      this.tempCert.expirydate=u1.expirydate;
-      this.cert.push(this.tempCert);
+      console.log("Running this");
+      this.tempCert.certName=u1.certName;
+      this.tempCert.acquireDate=u1.acquireDate;
+      this.tempCert.expDate=u1.expDate;
+      console.log("I am here right now");
+      if(u1.expDate>today)
+      {
+
+      console.log("Valid");
+      this.tempCert.validity='Valid';
+    }
+    else {
+      console.log("InValid");
+       this.tempCert.validity='InValid';
+        }
+          console.log("Im done");
+          this.cert.push(this.tempCert);
+          console.log(this.tempCert);
       //i++;
     }
   }
