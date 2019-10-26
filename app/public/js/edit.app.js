@@ -14,7 +14,7 @@ var peopleEditApp = new Vue({
         }
       })},
     handleReset() {
-      this.recordPeople = {
+      this.people = {
         personID: '',
         firstName: '',
         lastName: '',
