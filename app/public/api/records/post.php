@@ -19,8 +19,8 @@ $stmt->execute([
   $_POST['stationName']
 ]);
 
-$id = $db->lastInsertID();
+$personID = $db->lastInsertID();
 
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
-header('Location: ../records/?id=' . $id);
+header('Location: ../records/?personID=' . $personID);

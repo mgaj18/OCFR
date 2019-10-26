@@ -22,9 +22,9 @@ var peopleRecordsApp = new Vue({
       })
 
       .then(response => response.json())
-      .then(json => { peopleRecordsApp.people.push(this.recordPeople) })
+      .then(json => { peopleRecordsApp.people.push(json[0])})
 
-      this.fetchpeople();
+      this.handleReset();
 
     },
     handleReset() {
@@ -35,7 +35,7 @@ var peopleRecordsApp = new Vue({
         radio:'',
         stationName:''
       }
-    },
+    } ,
     handleRowClick(people) {
       peopleRecordsApp.people = people;
     }
