@@ -3,9 +3,8 @@
 $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 $stmt = $db->prepare(
-    'SELECT p.personID, p.firstName, p.lastName, j.radio, j.stationID, p.email
-FROM People p, JobRecords j
-WHERE p.personID = j.personID;'
+    'SELECT personID, firstName, lastName, radio, stationName, email
+      FROM People;'
 );
 $stmt->execute();
 $people = $stmt->fetchAll();

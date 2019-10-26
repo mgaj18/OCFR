@@ -1,7 +1,8 @@
 var peopleRecordsApp = new Vue({
   el: '#peopleApp',
   data: {
-    people: []
+    people: [],
+    recordPeople: {}
 
   },
   methods: {
@@ -9,33 +10,38 @@ var peopleRecordsApp = new Vue({
       fetch('api/records/index.php')
       .then(response => response.json())
       .then(json => {peopleRecordsApp.people = json})
-      }
     },
-/*
+
     handleSubmit(event) {
       fetch('api/records/post.php', {
         method:'POST',
-        body: JSON.stringify(this.recordPatient),
+        body: JSON.stringify(this.recordPeople),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
         }
       })
 
       .then(response => response.json())
-      .then(json => { patientRecordsApp.patients.push(json[0]) })
+      .then(json => { peopleRecordsApp.people.push(this.recordPeople) })
 
-      this.handleReset();
+      this.fetchpeople();
+
     },
     handleReset() {
-      this.recordPatient = {
-        firstName: ''
+      this.recordPeople = {
+        firstName: '',
+        lastName: '',
+        email:'',
+        radio:'',
+        stationName:''
       }
     },
-    handleRowClick(patient) {
-      patientTriageApp.patient = patient;
+    handleRowClick(people) {
+      peopleRecordsApp.people = people;
     }
-  }, // end methods */
+  },
   created() {
+    this.handleReset();
     this.fetchpeople();
   }
 });
