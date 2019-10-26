@@ -6,6 +6,7 @@
 $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 
+if (isset($_POST['edit'])){
 
 $stmt = $db->prepare(
   'UPDATE People
@@ -21,6 +22,19 @@ $stmt->execute([
   $_POST['stationName'],
   $_POST['personID']
 ]);
+
+}
+else if (isset($_POST['delete']))
+{
+  $stmt = $db->prepare(
+    'DELETE FROM People
+    where personID = ?;'
+  );
+
+  $stmt->execute([
+    $_POST['personID']
+  ]);
+}
 
 $personID = $_POST['personID'];
 

@@ -17,7 +17,7 @@ $stmt->execute([
   $_POST['personID']
 ]);
 
-//$personID = $db->lastInsertID();
+$personID = $_POST['personID'];
 
 // Step 4: Output
 header('HTTP/1.1 303 See Other');

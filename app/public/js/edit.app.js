@@ -11,8 +11,18 @@ var peopleEditApp = new Vue({
         body: JSON.stringify(this.people),
         headers: {
           "Content-Type": "application/json; charset=utf-8"
+
         }
       })},
+      handleDelete(event) {
+        fetch('api/records/delete.php', {
+          method:'POST',
+          body: JSON.stringify(this.people),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+
+          }
+        })},
     handleReset() {
       this.people = {
         personID: '',

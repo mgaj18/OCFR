@@ -114,7 +114,7 @@
 <hr>
 <div id = "peopleEditApp">
     <div class = "container">
-    <form @submit.prevent = "handleSubmit">
+    <form>
       <div class="form-group">
         PersonID
         <input type="name" class="form-control" id="editlastname" v-model="people.personID" readonly>
@@ -144,8 +144,8 @@
         <label for="editstation">Station</label>
         <input type="station" class="form-control" id="editstation" placeholder="Enter Station" v-model="people.stationName">
         <br>
-        <button type="submit" value = "Edit" class="btn btn-primary">Save Edits</button>
-        <button type="submit" value= "Delete" class="btn btn-primary">Delete User</button>
+        <button v-on:click.prevent ="handleSubmit" type="submit" class="btn btn-primary">Save Edits</button>
+        <button v-on:click ="handleDelete" type="submit" class="btn btn-primary">Delete User</button>
         <hr>
       </div>
     </form>
