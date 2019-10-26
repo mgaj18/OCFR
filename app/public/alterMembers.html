@@ -51,9 +51,40 @@
   <body>
 
 <div id = "peopleApp" >
-    <div class= "container" >
-      <h1> Alter Member Records </h1>
+  <div class = "container">
+    <h1> Alter Member Records </h1>
+    <hr>
+  <form @submit.prevent = "handleSubmit">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="name" class="form-control" id="firstname" placeholder="Enter First Name" v-model="recordPeople.firstName">
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="name" class="form-control" id="lastname" placeholder="Enter Last Name" v-model="recordPeople.lastName">
+    </div>
+
+    <div class="form-group">
+      <label for="radioNumber">RadioNumber</label>
+      <input type="radioNumber" class="form-control" id="radionumber" placeholder="Enter Radio Number" v-model="recordPeople.radio">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" v-model="recordPeople.email">
+    </div>
+
+    <div class="form-group">
+      <label for="station">Station</label>
+      <input type="station" class="form-control" id="station" placeholder="Enter Station" v-model="recordPeople.stationName">
+      <br>
+      <button type="submit" class="btn btn-primary">Add User</button>
       <hr>
+    </div>
+  </form>
+</div>
+    <div class= "container" >
         <table class="table table-dark">
           <thead>
             <tr>
@@ -66,7 +97,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for= "p in people">
+            <tr v-for= "p in people" @click = "handleRowClick(p)">
               <td>{{p.personID}}</td>
               <td>{{p.firstName}}</td>
               <td>{{p.lastName}}</td>
@@ -77,51 +108,56 @@
             </tr>
           </tbody>
         </table>
-        <button type="button" class="btn btn-primary">Select</button>
     </div>
-
+  </div>
 <br>
 <hr>
-
+<div id = "peopleEditApp">
     <div class = "container">
     <form @submit.prevent = "handleSubmit">
       <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input type="name" class="form-control" id="firstname" placeholder="Enter First Name" v-model="recordPeople.firstName">
+        PersonID
+        <input type="name" class="form-control" id="editlastname" v-model="people.personID" readonly>
       </div>
 
       <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input type="name" class="form-control" id="lastname" placeholder="Enter Last Name" v-model="recordPeople.lastName">
+        <label for="editfirstName">First Name</label>
+        <input type="name" class="form-control" id="editfirstname" placeholder="Enter First Name" v-model="people.firstName">
       </div>
 
       <div class="form-group">
-        <label for="radioNumber">RadioNumber</label>
-        <input type="radioNumber" class="form-control" id="radionumber" placeholder="Enter Radio Number" v-model="recordPeople.radio">
+        <label for="editlastName">Last Name</label>
+        <input type="name" class="form-control" id="editlastname" placeholder="Enter Last Name" v-model="people.lastName">
       </div>
 
       <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" v-model="recordPeople.email">
+        <label for="editradioNumber">RadioNumber</label>
+        <input type="radioNumber" class="form-control" id="editradionumber" placeholder="Enter Radio Number" v-model="people.radio">
       </div>
 
       <div class="form-group">
-        <label for="station">Station</label>
-        <input type="station" class="form-control" id="station" placeholder="Enter Station" v-model="recordPeople.stationName">
+        <label for="editemail">Email Address</label>
+        <input type="email" class="form-control" id="editemail" placeholder="Enter email" v-model="people.email">
+      </div>
+
+      <div class="form-group">
+        <label for="editstation">Station</label>
+        <input type="station" class="form-control" id="editstation" placeholder="Enter Station" v-model="people.stationName">
+        <br>
+        <button type="submit" value = "Edit" class="btn btn-primary">Save Edits</button>
+        <button type="submit" valeu = "Delete" class="btn btn-primary">Delete User</button>
         <hr>
-        <button type="submit" class="btn btn-primary">Save Edits</button>
       </div>
-      <button type="submit" class="btn btn-primary">Delete User</button>
-
-      <button type="submit" class="btn btn-primary">Add User</button>
     </form>
   </div>
-</div>
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/people.app.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="js/edit.app.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>

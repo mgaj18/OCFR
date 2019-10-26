@@ -37,7 +37,7 @@ var peopleRecordsApp = new Vue({
       }
     } ,
     handleRowClick(people) {
-      peopleRecordsApp.people = people;
+      peopleEditApp.people = people;
     }
   },
   created() {
