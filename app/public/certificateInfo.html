@@ -59,14 +59,32 @@
   <div class="col-sm-6">
     <div class="form-group">
        <label for="sel1">Select Certification:</label>
-       <select class="form-control">
+       <select class="form-control" v-model = "members.certName">
          <option v-for="c in cert">{{c.certName}}</option>
        </select>
        <br>
-       <button v-on:click ="handleSelection" type="submit" class="btn btn-primary">Select User</button>
+       <button v-on:click ="handleSelection" type="submit" class="btn btn-primary">Show Users</button>
     </div>
 </div>
 </div>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Person ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr v-for= "p in people">
+          <td>{{p.personID}}</td>
+          <td>{{p.Name}}</td>
+          <td>{{p.Status}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
 
     <!-- Optional JavaScript -->

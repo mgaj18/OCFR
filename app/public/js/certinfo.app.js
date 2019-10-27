@@ -1,7 +1,9 @@
 var certInfoApp = new Vue({
   el: '#certInfoApp',
   data: {
-    cert: []
+    cert: [],
+    members: {},
+    people: []
 
   },
   methods: {
@@ -10,8 +12,19 @@ var certInfoApp = new Vue({
       .then(response => response.json())
       .then(json => {certInfoApp.cert = json})
     },
-    handleSelection(){
-
+    
+    handleSelection() {
+      console.log(this.members)
+      console.log(this.people)
+      fetch('api/records/certMembers.php', {
+        method: 'POST',
+        body: JSON.stringify(this.members),
+        headers: {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      })
+    .then(response => response.json())
+    .then(json => {certInfoApp.people = json})
     }
 
   },
