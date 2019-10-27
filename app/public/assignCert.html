@@ -61,7 +61,7 @@
        <label for="sel1">Select Certification:</label>
        <select v-model = "table.certificateID" class="form-control">
          <option></option>
-         <option v-for="c in cert">{{c.certificateID}}</option>
+         <option v-for="c in cert" v-bind:value = "c.certificateID" >{{c.certName}}</option>
        </select>
     </div>
   </div>
@@ -70,7 +70,7 @@
        <label for="sel1">Select Person:</label>
          <select v-model= "table.personID" class="form-control">
            <option></option>
-           <option v-for="p in people">{{p.personID}}</option>
+           <option v-for="p in people" v-bind:value = "p.personID">{{p.firstName}} {{p.lastName}}</option>
          </select>
        </div>
 
@@ -89,7 +89,7 @@
          <br>
 
 
-         <button v-on:click ="handleSelection" type="submit" class="btn btn-primary">Confirm Certification</button>
+         <button v-on:click.prevent ="handleSelection" type="submit" class="btn btn-primary">Confirm Certification</button>
          </div>
        </div>
 
