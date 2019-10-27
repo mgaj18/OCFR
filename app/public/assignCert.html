@@ -9,9 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/site.css">
 
-    <title>OCFR Home</title>
+    <title>Assign Certification</title>
   </head>
-  <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="index.html">OCFR</a>
@@ -51,20 +50,57 @@
     </div>
   </nav>
   </header>
-
-    <!-- <div id = "bigheader" class="container"> -->
-    <div id="bigheader" class="container">
-
-    <h1 style="font-size:100px;">OCFR</h1>
+  <body>
+  <div id="assignPeopleCertApp" class="container">
+    <form>
+    <h1> Assign Certificate to Person</h1>
+    <hr>
     <br>
-    <img src="img/fire.png" alt="">
+  <div class="col-sm-6">
+    <div class="form-group">
+       <label for="sel1">Select Certification:</label>
+       <select v-model = "table.certificateID" class="form-control">
+         <option></option>
+         <option v-for="c in cert">{{c.certificateID}}</option>
+       </select>
+    </div>
+  </div>
+
+      <div class="form-group col-6">
+       <label for="sel1">Select Person:</label>
+         <select v-model= "table.personID" class="form-control">
+           <option></option>
+           <option v-for="p in people">{{p.personID}}</option>
+         </select>
+       </div>
+
+       <div class="col-6">
+         <div class="form-group">
+           <label>Certification Begin Date</label>
+           <input v-model= "table.acquireDate" type="name" class="form-control" id="certBeginDate" placeholder="Enter Start Date">
+         </div>
+         <br>
+       </div>
+       <div class="col-6">
+         <div class="form-group">
+           <label>Certification End Date</label>
+           <input v-model= "table.expDate" type="name" class="form-control" id="certEndDate" placeholder="Enter Expiry Date">
+         </div>
+         <br>
+
+
+         <button v-on:click ="handleSelection" type="submit" class="btn btn-primary">Confirm Certification</button>
+         </div>
+       </div>
 
   </div>
+
+  </form>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- <script src="js/people.app.js"></script> -->
+    <script src="js/assignPeopleCert.app.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

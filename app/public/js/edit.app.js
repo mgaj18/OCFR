@@ -6,6 +6,7 @@ var peopleEditApp = new Vue({
   },
   methods: {
     handleSubmit(event) {
+      console.log(this.people)
       fetch('api/records/edit.php', {
         method:'POST',
         body: JSON.stringify(this.people),
