@@ -6,8 +6,6 @@
 $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 
-
-
 $stmt = $db->prepare(
   'DELETE FROM People
   where personID = ?;'
@@ -16,9 +14,3 @@ $stmt = $db->prepare(
 $stmt->execute([
   $_POST['personID']
 ]);
-
-$personID = $_POST['personID'];
-
-// Step 4: Output
-header('HTTP/1.1 303 See Other');
-header('Location: ../records/?personID=' . $personID);

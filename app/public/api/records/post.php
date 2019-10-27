@@ -7,8 +7,8 @@ $db = DbConnection::getConnection();
 // Step 2: Create & run the query
 
 $stmt = $db->prepare(
-  'INSERT INTO People (firstName, lastName, email, radio, stationName)
-  VALUES (?, ?, ?, ?, ?);'
+  'INSERT INTO People (firstName, lastName, email, radio, stationName,gender, dob, address, position, phoneNumber)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);'
 );
 
 $stmt->execute([
@@ -16,7 +16,12 @@ $stmt->execute([
   $_POST['lastName'],
   $_POST['email'],
   $_POST['radio'],
-  $_POST['stationName']
+  $_POST['stationName'],
+  $_POST['gender'],
+  $_POST['dob'],
+  $_POST['address'],
+  $_POST['position'],
+  $_POST['phoneNumber']
 ]);
 
 $personID = $db->lastInsertID();

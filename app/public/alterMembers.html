@@ -56,35 +56,78 @@
     <h1> Alter Member Records </h1>
     <hr>
   <form @submit.prevent = "handleSubmit">
-    <div class="form-group">
+  <div class = "row">
+
+    <div class="form-group col-5">
       <label for="firstName">First Name</label>
       <input type="name" class="form-control" id="firstname" placeholder="Enter First Name" v-model="recordPeople.firstName">
     </div>
 
-    <div class="form-group">
+    <div class="form-group col-5">
       <label for="lastName">Last Name</label>
       <input type="name" class="form-control" id="lastname" placeholder="Enter Last Name" v-model="recordPeople.lastName">
     </div>
 
-    <div class="form-group">
-      <label for="radioNumber">RadioNumber</label>
-      <input type="radioNumber" class="form-control" id="radionumber" placeholder="Enter Radio Number" v-model="recordPeople.radio">
+    <div class="form-group col-2">
+      <label for="lastName">Gender</label>
+      <input type="name" class="form-control" id="gender" placeholder="Enter Gender" v-model="recordPeople.gender">
     </div>
 
-    <div class="form-group">
+  </div>
+
+  <div class = "row">
+
+    <div class="form-group col-4">
+      <label for="dob">Date of Birth</label>
+      <input class="form-control" id="dob" placeholder="0000-00-00" v-model="recordPeople.dob">
+    </div>
+
+
+    <div class="form-group col-4">
+      <label for="phoneNumber">Phone Number</label>
+      <input class="form-control" id="phoneNumber" placeholder="Enter Phone Number" v-model="recordPeople.phoneNumber">
+    </div>
+
+    <div class="form-group col-4">
       <label for="email">Email Address</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" v-model="recordPeople.email">
+      <input type="email" class="form-control" id="email" placeholder="Enter Email" v-model="recordPeople.email">
     </div>
 
-    <div class="form-group">
-      <label for="station">Station</label>
-      <input type="station" class="form-control" id="station" placeholder="Enter Station" v-model="recordPeople.stationName">
-      <br>
-      <button type="submit" class="btn btn-primary">Add User</button>
-      <hr>
+  </div>
+
+  <div class = "row">
+
+    <div class="form-group col-12">
+      <label for="address">Address</label>
+      <input class="form-control" id="address" placeholder="Enter Address" v-model="recordPeople.address">
     </div>
+
+  </div>
+
+  <div class = "row">
+    <div class="form-group col-4">
+      <label for="station">Station</label>
+      <input class="form-control" id="station" placeholder="Enter Station" v-model="recordPeople.stationName">
+    </div>
+
+    <div class="form-group col-4">
+      <label for="position">Position</label>
+      <input class="form-control" id="position" placeholder="Enter Position" v-model="recordPeople.position">
+    </div>
+
+    <div class="form-group col-4">
+      <label for="radio">Radio</label>
+      <input class="form-control" id="radio" placeholder="Enter Radio Number" v-model="recordPeople.radio">
+    </div>
+
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Add User</button>
+  <hr>
+  </div>
+
   </form>
-</div>
+
     <div class= "container" >
         <table class="table table-dark">
           <thead>
@@ -113,45 +156,86 @@
   </div>
 <br>
 <hr>
+
 <div id = "peopleEditApp">
     <div class = "container">
     <form>
-      <div class="form-group">
-        PersonID
+    <div class = "row">
+      <div class="form-group col-2">
+        <label for="personID">PersonID</label>
         <input type="name" class="form-control" id="editlastname" v-model="people.personID" readonly>
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-5">
         <label for="editfirstName">First Name</label>
         <input type="name" class="form-control" id="editfirstname" placeholder="Enter First Name" v-model="people.firstName">
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-5">
         <label for="editlastName">Last Name</label>
         <input type="name" class="form-control" id="editlastname" placeholder="Enter Last Name" v-model="people.lastName">
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="editradioNumber">RadioNumber</label>
-        <input type="radioNumber" class="form-control" id="editradionumber" placeholder="Enter Radio Number" v-model="people.radio">
+    <div class= "row">
+      <div class="form-group col-2">
+        <label for="editGender">Gender</label>
+        <input type="name" class="form-control" id="editgender" placeholder="Enter Gender" v-model="people.gender">
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-4">
+        <label for="editdob">Date of Birth</label>
+        <input class="form-control" id="editdob" placeholder="Enter DOB" v-model="people.dob">
+      </div>
+
+      <div class="form-group col-6">
+        <label for="editphoneNumber">Phone Number</label>
+        <input class="form-control" id="editphoneNumber" placeholder="Enter Phone Number" v-model="people.phoneNumber">
+      </div>
+    </div>
+
+    <div class = "row">
+
+      <div class="form-group col-6">
         <label for="editemail">Email Address</label>
-        <input type="email" class="form-control" id="editemail" placeholder="Enter email" v-model="people.email">
+        <input type="email" class="form-control" id="editEmail" placeholder="Enter Email" v-model="people.email">
       </div>
 
-      <div class="form-group">
+      <div class="form-group col-6">
+        <label for="editaddress">Address</label>
+        <input class="form-control" id="editaddress" placeholder="Enter Address" v-model="people.address">
+      </div>
+
+    </div>
+
+    <div class = "row">
+
+      <div class="form-group col-4">
         <label for="editstation">Station</label>
-        <input type="station" class="form-control" id="editstation" placeholder="Enter Station" v-model="people.stationName">
+        <input class="form-control" id="editstation" placeholder="Enter Station" v-model="people.stationName">
+      </div>
+
+      <div class="form-group col-4">
+        <label for="editposition">Position</label>
+        <input class="form-control" id="editposition" placeholder="Enter Position" v-model="people.position">
+      </div>
+
+
+      <div class="form-group col-4">
+        <label for="editradioNumber">Radio Number</label>
+        <input class="form-control" id="editradionumber" placeholder="Enter Radio Number" v-model="people.radio">
+      </div>
+
+    </div>
+
         <br>
         <button v-on:click.prevent ="handleSubmit" type="submit" class="btn btn-primary">Save Edits</button>
-        <button v-on:click ="handleDelete" type="submit" class="btn btn-primary">Delete User</button>
+        <button style = "float: right" v-on:click ="handleDelete" type="submit" class="btn btn-primary">Delete User</button>
         <hr>
-      </div>
+    </div>
     </form>
   </div>
-</div>
+
 
 
     <!-- Optional JavaScript -->

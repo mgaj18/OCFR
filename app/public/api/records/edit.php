@@ -9,7 +9,7 @@ $db = DbConnection::getConnection();
 
 $stmt = $db->prepare(
   'UPDATE People
-  SET firstName = ?, lastName= ?, email=?, radio=?, stationName=?
+  SET firstName = ?, lastName= ?, email=?, radio=?, stationName=?, gender = ?, dob = ?, address = ?, position = ?, phoneNumber = ?
   where personID = ?;'
 );
 
@@ -19,6 +19,11 @@ $stmt->execute([
   $_POST['email'],
   $_POST['radio'],
   $_POST['stationName'],
+  $_POST['gender'],
+  $_POST['dob'],
+  $_POST['address'],
+  $_POST['position'],
+  $_POST['phoneNumber'],
   $_POST['personID']
 ]);
 

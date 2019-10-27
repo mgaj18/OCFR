@@ -29,11 +29,17 @@ var peopleRecordsApp = new Vue({
     },
     handleReset() {
       this.recordPeople = {
+        personID: '',
         firstName: '',
         lastName: '',
         email:'',
         radio:'',
-        stationName:''
+        stationName:'',
+        dob: '',
+        gender: '',
+        address:'',
+        phoneNumber:'',
+        position:''
       }
     } ,
     handleRowClick(people) {

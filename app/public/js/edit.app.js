@@ -1,7 +1,7 @@
 var peopleEditApp = new Vue({
   el: '#peopleEditApp',
   data: {
-    people: {}
+    people: []
 
   },
   methods: {
@@ -30,7 +30,12 @@ var peopleEditApp = new Vue({
         lastName: '',
         email:'',
         radio:'',
-        stationName:''
+        stationName:'',
+        dob: '',
+        gender: '',
+        address:'',
+        phoneNumber:'',
+        position:''
       }
     }
 
