@@ -56,25 +56,33 @@
     <h1> Alter Certification Records </h1>
     <hr>
   <form>
-    <div class="form-group">
-      Certification ID
+    <div class="row">
+    <div class="form-group col-2">
+      <label for="certID">Certification ID</label>
       <input type="name" class="form-control" id="editlastname" v-model="certification.certificateID" readonly>
     </div>
-
-    <div class="form-group">
+  </div>
+  <div class = "row">
+    <div class="form-group col-6">
       <label for="certName">Certification Name</label>
       <input type="name" class="form-control" id="certName" placeholder="Enter Certification Name" v-model="certification.certName" required>
     </div>
+  </div>
 
-    <div class="form-group">
+  <div class = "row">
+    <div class="form-group col-6">
       <label for="agency">Agency</label>
       <input type="name" class="form-control" id="agency" placeholder="Enter Certification Agency" v-model="certification.agency">
     </div>
+  </div>
 
-    <div class="form-group">
+  <div class = "row">
+    <div class="form-group col-6">
       <label for="certificationLength">Length</label>
       <input type="radioNumber" class="form-control" id="certificationLength" placeholder="Enter Certification Length" v-model="certification.certificationLength">
     </div>
+  </div>
+
       <br>
       <button v-on:click.prevent ="handleAdd" type="submit" class="btn btn-primary">Add User</button>
       <button v-on:click.prevent ="handleEdit" type="submit" class="btn btn-primary">Save Edits</button>
@@ -89,7 +97,7 @@
               <th scope="col">Certification ID</th>
               <th scope="col">Certification Name</th>
               <th scope="col">Certification Agency</th>
-              <th scope="col">Certification Length</th>
+              <th scope="col">Certification Length (Months)</th>
             </tr>
           </thead>
           <tbody>
