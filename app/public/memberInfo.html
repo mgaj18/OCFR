@@ -61,28 +61,30 @@
 
         <b><label for="firstName">First Name:</label></b>{{ user.firstName }}<br>
         <b><label for="lastName">Last Name:</label></b>{{ user.lastName }}<br>
-        <!--<b><label for="gender">Name:</label></b>{{u.gender}}<br>
-        <b><label for="dateOfBirth">DateOfBirth:</label></b>{{ u.dob }}<br>
-        <b><label for="address">Name:</label></b>{{u.address}}<br>
-        <b><label for="email">Email:</label></b>{{ u.email }}<br>
-        <b><label for="phonenumber">PhoneNumber:</label></b>{{u.phoneNumber}}<br> -->
-        <!-- <b><label for="radionumber">Radio:</label></b>{{ u.radio }} <br>
-        <b><label for="Name">Station Name:</label></b>{{ u.stationName }} <br> -->
-
+        <b><label for="gender">Gender:</label></b>{{user.gender}}<br>
+        <b><label for="dateOfBirth">DateOfBirth:</label></b>{{ user.dob }}<br>
+        <b><label for="address">Name:</label></b>{{user.address}}<br>
+        <b><label for="email">Email:</label></b>{{ user.email}}<br>
+        <b><label for="phonenumber">PhoneNumber:</label></b>{{user.phoneNumber}}<br>
+        <b><label for="radionumber">Radio:</label></b>{{ user.radio }} <br>
+        <b><label for="stationName">Station Name:</label></b>{{ user.stationName }} <br>
+        <b><label for="position">Position:</label></b>{{ user.position }} <br>
         <b><label for="Certificates">Certificates:</label></b><br>
         <table class="table table-dark">
           <thead>
             <tr>
-              <th scope="col">Certificate ID</th>
+              <th scope="col">Certificate Name</th>
               <th scope="col">Acquired Date</th>
               <th scope="col">Expiry Date</th>
+              <th scope="col">Validity</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for= "c in cert">
-              <td>{{c.certificateID}}</td>
-              <td>{{c.acquiredate}}</td>
-              <td>{{c.expirydate}}</td>
+              <td>{{c.certName}}</td>
+              <td>{{c.acquireDate}}</td>
+              <td>{{c.expDate}}</td>
+              <td>{{c.validity}}</td>
               </tr>
           </tbody>
         </table>
