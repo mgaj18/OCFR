@@ -55,13 +55,13 @@
     <div class="container">
       <h1> Expired Certification Report </h1>
       <hr>
-<div id = "expiredCerts" class= "container" v-model="expcerts" >
+<div id = "expiredCerts" class= "container" >
     <table class="table">
       <form>
       <div class="form-check form-check-inline">
-          Certification:<input name="firstname" class = "certificationinput" type="text">
+          Certification:<input name="firstname" class = "certificationinput" type="text" v-model="getName">
 
-        <button type="submit" class="btn btn-primary mb-2">Filter by certificate       </button>
+        <button type="submit" class="btn btn-primary mb-2" v-on:click.prevent="specificCert">Filter by certificate       </button>
       </form>
       <thead class="thead-dark">
         <tr>
