@@ -10,13 +10,16 @@ $stmt = $db->prepare(
                 on People.personID=CertDetails.personID
             join Certifications
                 on CertDetails.certificateID=Certifications.certificateID
-    WHERE Certifications.certName=\'Extrication\';'
-);
-$stmt->execute();
-$people = $stmt->fetchAll();
+    WHERE Certifications.certName= ?'
 
-// Step 3: Convert to JSON
-$json = json_encode($people, JSON_PRETTY_PRINT);
-// Step 4: Output
+);
+$stmt->execute([
+   $_POST['certName']
+    ]);
+
+$certName = $stmt->fetchAll();
+
+$json = json_encode($certName, JSON_PRETTY_PRINT);
+
 header('Content-Type: application/json');
 echo $json;
