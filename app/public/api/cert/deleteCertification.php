@@ -16,9 +16,3 @@ $stmt = $db->prepare(
 $stmt->execute([
   $_POST['certificateID']
 ]);
-
-$certificateID= $_POST['certificateID'];
-
-// Step 4: Output
-header('HTTP/1.1 303 See Other');
-header('Location: ../records/?certificateID=' . $certificateID);

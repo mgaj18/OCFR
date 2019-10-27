@@ -22,7 +22,8 @@ var peopleEditApp = new Vue({
             "Content-Type": "application/json; charset=utf-8"
 
           }
-        })},
+        })
+      },
     handleReset() {
       this.people = {
         personID: '',

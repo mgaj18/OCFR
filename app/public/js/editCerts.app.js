@@ -36,7 +36,12 @@ var certificationApp = new Vue({
             "Content-Type": "application/json; charset=utf-8"
 
           }
-        })},
+
+
+        })
+
+        this.fetchcertification();
+      },
         handleEdit(event) {
           fetch('api/cert/editCertification.php', {
             method:'POST',
