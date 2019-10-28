@@ -12,10 +12,8 @@ var certInfoApp = new Vue({
       .then(response => response.json())
       .then(json => {certInfoApp.cert = json})
     },
-    
+
     handleSelection() {
-      console.log(this.members)
-      console.log(this.people)
       fetch('api/records/certMembers.php', {
         method: 'POST',
         body: JSON.stringify(this.members),

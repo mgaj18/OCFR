@@ -29,17 +29,18 @@ var certificationApp = new Vue({
     },
 
      handleDelete(event) {
+       console.log(this.certification)
         fetch('api/cert/deleteCertification.php', {
           method:'POST',
           body: JSON.stringify(this.certification),
           headers: {
             "Content-Type": "application/json; charset=utf-8"
-
           }
 
 
         })
-
+        this.handleReset();
+        this.fetchcertification();
         this.fetchcertification();
       },
         handleEdit(event) {
@@ -56,7 +57,8 @@ var certificationApp = new Vue({
       this.certification = {
         certName: '',
         agency: '',
-        certificationLength: ''
+        certificationLength: '',
+        certificateID:''
       }
     },
     handleRowClick(certificate) {
